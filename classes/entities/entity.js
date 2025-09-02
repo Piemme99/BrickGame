@@ -1,5 +1,6 @@
 export default class Entity {
-  constructor(x, y, width, height) {
+  constructor(game, x, y, width, height) {
+    this.game = game;
     this.x = x;
     this.y = y;
     this.width = width;
@@ -7,11 +8,12 @@ export default class Entity {
   }
 
   isColliding(entity) {
+    var leftCollides = this.x - this.width / 2 < entity.x + entity.x / 2
+    var rightCollides = this.x + this.width / 2 > entity.x - entity.x / 2
+    var upCollides = this.y - this.height / 2 < entity.y + entity.y / 2
+    var downCollides = this.y + this.height / 2 > entity.y - entity.y / 2
     return (
-      this.x < entity.x + entity.width &&
-      this.x + this.width > entity.x &&
-      this.y < entity.y + entity.height &&
-      this.y + this.height > entity.y
+      leftCollides && rightCollides && upCollides && downCollides
     );
   }
 }

@@ -1,9 +1,9 @@
 import Entity from "./entity";
 
 export default class Rectangle extends Entity {
-  constructor(ctx, x, y, width, height, color) {
-    super(x, y, width, height);
-    this.ctx = ctx;
+  constructor(game, x, y, width, height, color) {
+    super(game, x, y, width, height);
+    this.ctx = game.ctx;
     this.color = color;
     this.isDeleted = false;
   }
