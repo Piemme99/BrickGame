@@ -1,10 +1,12 @@
 export default class Entity {
-  constructor(ctx, x, y, width, height) {
-    this.ctx = ctx;
+  constructor(game, x, y, width, height, color) {
+    this.game = game;
+    this.ctx = game.ctx;
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
+    this.color = color;
   }
 
   isColliding(entity) {

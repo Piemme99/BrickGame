@@ -1,10 +1,8 @@
 import Entity from "./Entity";
 
 export default class Brick extends Entity {
-  constructor(ctx, x, y, width, height, color, isDeleted) {
-    super(ctx, x, y, width, height);
-    this.ctx = ctx;
-    this.color = color;
+  constructor(game, x, y, width, height, color, isDeleted) {
+    super(game, x, y, width, height, color);
     this.isDeleted = isDeleted;
   }
   draw() {

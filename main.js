@@ -25,3 +25,4 @@ function mainLoop() {
 window.requestAnimationFrame(mainLoop);
 
 //TODO: garbage collect (delete out of bound or deleted entities)
+

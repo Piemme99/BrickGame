@@ -1,17 +1,16 @@
 import Entity from "./Entity";
 
 export default class Ball extends Entity {
-  constructor(ctx, x, y, radius, xSpeed, ySpeed, color) {
+  constructor(game, x, y, radius, xSpeed, ySpeed, color) {
     // For simplicity, the hitbox of a ball is a square of lenght 2*radius
-    super(ctx, x, y, 2 * radius, 2 * radius);
-    this.ctx = ctx;
+    super(game, x, y, 2 * radius, 2 * radius, color);
     this.radius = radius;
-    this.color = color;
     this.xSpeed = xSpeed;
     this.ySpeed = ySpeed;
   }
   draw() {
-    this.y += - this.ySpeed;
+    this.y += this.ySpeed;
+    this.x += this.xSpeed;
 
     this.ctx.strokeStyle = this.color;
     this.ctx.fillStyle = this.color;
@@ -25,8 +24,9 @@ export default class Ball extends Entity {
     for (const brick of bricks) {
       if (this.isColliding(brick) && brick !== this) {
         brick.isDeleted = true;
-        this.speed = - this.speed;
+        this.ySpeed *= -1;
       }
+
     }
   }
 }
