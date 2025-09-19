@@ -26,7 +26,15 @@ export default class Ball extends Entity {
         brick.isDeleted = true;
         this.ySpeed *= -1;
       }
+    }
+  }
+  checkOutOfBounds() {
 
+    if ((this.x < 0) || (this.x > this.game.width)) {
+      this.xSpeed = - this.xSpeed;
+    }
+    if ((this.y < 0) || (this.y > this.game.height)) {
+      this.ySpeed = - this.ySpeed;
     }
   }
 }
